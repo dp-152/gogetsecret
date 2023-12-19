@@ -57,7 +57,7 @@ func handleRequestV1_0(req *SecretRequest) (res []byte, fatal error) {
 			err   error
 		)
 
-		src, ident, ok := strings.Cut(secret, ":")
+		src, ident, ok := strings.Cut(secret, "@")
 
 		if !ok {
 			src = "map"
