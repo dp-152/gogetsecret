@@ -46,7 +46,7 @@ func main() {
 		fmt.Fprint(os.Stderr, fmt.Errorf("cannot fetch secrets: %w", err))
 	}
 
-	fmt.Println(res)
+	fmt.Println(string(res))
 }
 
 func handleRequestV1_0(req *SecretRequest) (res []byte, fatal error) {
