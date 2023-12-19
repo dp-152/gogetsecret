@@ -16,8 +16,8 @@ type SecretRequest struct {
 }
 
 type SecretEntry struct {
-	Value *string
-	Error *string
+	Value *string `json:"value"`
+	Error *string `json:"error"`
 }
 
 func main() {
