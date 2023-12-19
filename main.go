@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/dp-152/gogetsecret/provider/mapp"
+	"github.com/dp-152/gogetsecret/provider/secretsmanagerp"
 )
 
 type SecretRequest struct {
@@ -67,6 +68,8 @@ func handleRequestV1_0(req *SecretRequest) (res []byte, fatal error) {
 		switch src {
 		case "map":
 			value, err, fatal = mapp.GetSecret(ident)
+		case "secretsmanager":
+			value, err, fatal = secretsmanagerp.GetSecret(ident)
 		default:
 			err = fmt.Errorf("no secret provider found for source %s", src)
 		}
