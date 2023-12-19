@@ -76,6 +76,7 @@ func handleRequestV1_0(req *SecretRequest) (res []byte, fatal error) {
 		}
 
 		result := &SecretEntry{}
+		secretResults[secret] = result
 		if err != nil {
 			errstr := err.Error()
 			result.Error = &errstr
