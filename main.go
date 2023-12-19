@@ -24,14 +24,14 @@ func main() {
 	input, err := io.ReadAll(os.Stdin)
 
 	if err != nil {
-		panic(fmt.Errorf("cannot read input: %w", err))
+		fmt.Fprint(os.Stderr, fmt.Errorf("cannot read input: %w", err))
 	}
 
 	req := new(SecretRequest)
 	err = json.Unmarshal(input, req)
 
 	if err != nil {
-		panic(fmt.Errorf("cannot unmarshall input: %w", err))
+		fmt.Fprint(os.Stderr, fmt.Errorf("cannot unmarshall input: %w", err))
 	}
 
 	var res []byte
@@ -43,7 +43,7 @@ func main() {
 	}
 
 	if err != nil {
-		panic(fmt.Errorf("cannot fetch secrets: %w", err))
+		fmt.Fprint(os.Stderr, fmt.Errorf("cannot fetch secrets: %w", err))
 	}
 
 	fmt.Println(res)
