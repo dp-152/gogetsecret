@@ -1,5 +1,8 @@
 package mapp
 
-func GetSecret(id string) (value, err string) {
+import "fmt"
+
+func GetSecret(id string) (value string, err, fatal error) {
+	err = fmt.Errorf("not implemented")
 	return
 }
